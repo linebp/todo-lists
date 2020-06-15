@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Import</title>    
+    <link rel="stylesheet" href="/static/css/styles.css">
+    
+  </head>
+  
+  <body>
+
+
+    <h1>Import</h1>
+
+    {{ if .Error }}<div>{{ .Error }}</div>{{ end }}
+    
+    <form action="/import/" method="POST">
+      <textarea name="text">{{ if .Text }}{{ .Text }}{{ end }}</textarea>
+      <input type="submit" value="save" class="green">
+    </form>
+    
+  </body>
+</html>
+    

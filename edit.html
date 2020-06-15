@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Edit</title>    
+    <link rel="stylesheet" href="/static/css/styles.css">
+    
+  </head>
+  
+  <body>
+
+
+    <h1>Edit</h1>
+
+    <form action="/save/" method="POST">
+      <label for="title">Title</label>
+      <input  type="text" name="title" {{ if .Title }}value="{{ .Title }}" readonly{{ else }}placeholder="Title"{{ end }} required>
+      <label for="list">Items</label>
+      <textarea name="list" placeholder="Whitespace separated list of todos">{{ range .List }}{{ . }}
+{{ end }}</textarea>
+      <input type="submit" value="Save" class="green">
+    </form>
+    
+  </body>
+</html>
+    

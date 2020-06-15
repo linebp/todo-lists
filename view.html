@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>View</title>    
+    <link rel="stylesheet" href="/static/css/styles.css">
+    
+  </head>
+  
+  <body>
+
+
+
+    <a href="/edit/"><button type="button" class="blue">Add ToDo list</button></a>
+    <a href="/import/"><button type="button" class="blue">Import from json</button></a>
+    <a href="/export/"><button type="button" class="blue">Export to json</button></a>
+
+    <h1>ToDo lists</h1>
+
+    {{ range $key, $value := . }}
+    <div class="boxed">
+      <h3>{{ $key }}</h3>
+      <ul>
+	{{ range $value }}
+	<li>{{ . }}</li>
+	{{ else }}
+	<strong>No lists here</strong>
+	{{ end}}
+      </ul>
+      <a href="/edit?title={{ $key }}"><button type="button" class="blue">Edit</button></a>
+      <div class="right"><a href="/delete?title={{ $key }}"><button type="button" class="red">Delete</button></a></div>
+    </div>
+    {{ else }}
+    <strong>Nothing to see here</strong>
+    {{ end }}
+    
+  </body>
+</html>
